@@ -23,7 +23,7 @@ import Image from "next/image";
 import "@/public/home.css";
 import RadialBackground from "@/components/RadialBackground/RadialBackground";
 import Footer from "@/components/Footer/Footer";
-import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
+import PrimaryButton from "../components/PrimaryButton/PrimaryButton";
 import Link from "next/link";
 
 export default function Home() {
