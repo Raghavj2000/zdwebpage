@@ -1,0 +1,28 @@
+.primary_button {
+  border-width: 2px;
+  border-style: solid;
+  padding: 0.4rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .primary_button {
+    border-width: 2px;
+    border-style: solid;
+    padding: 0.8rem 5rem;
+    font-size: 3rem;
+    border-radius: 4rem;
+    cursor: pointer;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .primary_button {
+    border-width: 2px;
+    border-style: solid;
+    padding: 0.8rem 5rem;
+    font-size: 3rem;
+    border-radius: 4rem;
+    cursor: pointer;
+  }
+}
