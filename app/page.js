@@ -23,7 +23,7 @@ import Image from "next/image";
 import "@/public/home.css";
 import RadialBackground from "@/components/RadialBackground/RadialBackground";
 import Footer from "@/components/Footer/Footer";
-import PrimaryButton from "../components/PrimaryButton/PrimaryButton";
+// import PrimaryButton from "../components/PrimaryButton/PrimaryButton";
 import Link from "next/link";
 
 export default function Home() {
@@ -210,12 +210,12 @@ export default function Home() {
           Bring Your Product To <span id="heading_span">Life With 3D.</span>
         </h1>
         <Link href="/contactus">
-          <PrimaryButton
+          {/* <PrimaryButton
             label={"Get Started"}
             color={"white"}
             backgroundColor={"#191a1d"}
             borderColor={"#8676e9"}
-          />
+          /> */}
         </Link>
       </section>
       <section id="visualizer">
@@ -615,13 +615,13 @@ export default function Home() {
             <Image src={rightIcon} alt="right" />
           </div> */}
           <Link href="/contactus">
-            <PrimaryButton
+            {/* <PrimaryButton
               label={"Get Started"}
               color={"white"}
               backgroundColor={"transparent"}
               borderColor={"#8676e9"}
               background={"linear-gradient(180deg,#8676E9 0%,#433B75 100%)"}
-            />
+            /> */}
           </Link>
         </div>
       </section>
