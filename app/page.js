@@ -228,6 +228,7 @@ export default function Home() {
       <section id="home">
         <video
           width={240}
+          playsInline
           autoPlay
           loop
           muted
@@ -324,19 +325,24 @@ export default function Home() {
         <div className="immersive_image_container">
           <div className="immersive_card">
             <div className="immersive_img">
-              <Image src={headphone} alt="headphone" title="heaphone" />
+              <Image
+                src={headphone}
+                alt="headphone"
+                title="heaphone"
+                priority
+              />
             </div>
             <button className="immersive_explore">Explore</button>
           </div>
           <div className="immersive_card">
             <div className="immersive_img">
-              <Image src={dress} alt="headphone" title="dress" />
+              <Image src={dress} alt="headphone" title="dress" priority />
             </div>
             <button className="immersive_explore">Explore</button>
           </div>
           <div className="immersive_card">
             <div className="immersive_img">
-              <Image src={car} alt="headphone" title="car" />
+              <Image src={car} alt="headphone" title="car" priority />
             </div>
             <button className="immersive_explore">Explore</button>
           </div>
@@ -481,6 +487,7 @@ export default function Home() {
           // TODO: Change the video
           width={240}
           autoPlay
+          playsInline
           loop
           muted
           style={{

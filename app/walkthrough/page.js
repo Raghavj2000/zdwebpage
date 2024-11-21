@@ -21,6 +21,7 @@ const Walkthrough = () => {
       <section id="home">
         <video
           width={240}
+          playsInline
           autoPlay
           loop
           muted
