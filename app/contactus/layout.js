@@ -1,7 +1,3 @@
-import { ToastContainer, toast } from "react-toastify";
-
-import "react-toastify/dist/ReactToastify.css";
-
 export const metadata = {
   title: "ZDViewer-Contact to do great",
   description:
@@ -9,10 +5,5 @@ export const metadata = {
 };
 
 export default function ContactLayout({ children }) {
-  return (
-    <main>
-      <ToastContainer />
-      {children}
-    </main>
-  );
+  return <main>{children}</main>;
 }

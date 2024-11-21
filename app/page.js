@@ -1,23 +1,14 @@
 // import { useState, useEffect } from "react";
-import hourGlass from "@/public/hourglass.webp";
-import flowerPot from "@/public/flower_pot.webp";
-import woodenSofa from "@/public/wooden_Sofa.webp";
-import woodenChair from "@/public/woodenChair.webp";
+
 import fingers from "@/public/fingers.webp";
 import aim from "@/public/aim.webp";
 import tv from "@/public/tv.webp";
 import Marquee from "react-fast-marquee";
-import rightIcon from "@/public/image.webp";
-import potIcon from "@/public/pot.webp";
-import rockingChair from "@/public/rockingchair2.webp";
-import visualize from "@/public/visualize.webp";
-import upload from "@/public/Upload.webp";
-import generate from "@/public/generate.webp";
-import headphone from "@/public/headphone.webp";
+import headphone from "@/public/sofa_so_good.webp";
 import dress from "@/public/beautiful_dress.webp";
-import laptopSettings from "@/public/GIFF1.webp";
-import upArrow from "@/public/GIFF2.webp";
-import thrredDBox from "@/public/GIFF3.webp";
+import laptopSettings from "@/public/lined_box.webp";
+import upArrow from "@/public/thin_upload.webp";
+import thrredDBox from "@/public/cover_box.webp";
 import car from "@/public/car.webp";
 import Image from "next/image";
 import "@/public/home.css";
@@ -25,80 +16,94 @@ import RadialBackground from "@/components/RadialBackground/RadialBackground";
 import Footer from "@/components/Footer/Footer";
 import PrimaryButton from "../components/PrimaryButton/PrimaryButton";
 import Link from "next/link";
+import big_car from "@/public/big_car.webp";
+import big_elephant from "@/public/big_elephant.webp";
+import cylinder_engine from "@/public/cylinder_engine.webp";
+import earphones from "@/public/earphones.webp";
+import fan from "@/public/fan.webp";
+import Infusor_Pump from "@/public/Infusor Pump.webp";
+import mobile from "@/public/mobile.webp";
+import mri from "@/public/mri.webp";
+import new_dress from "@/public/new-dress.webp";
+import omron from "@/public/omron.webp";
+import pram from "@/public/pram.webp";
+import silver_jewelery from "@/public/silver_jewelery.webp";
+import sofa from "@/public/sofa.webp";
+import table from "@/public/table.webp";
 
 export default function Home() {
   const marquee1 = [
     {
       id: 1,
-      title: "Hourglass",
-      logo: hourGlass,
+      title: "big_car",
+      logo: big_car,
     },
     {
       id: 2,
-      title: "FlowerPot",
-      logo: flowerPot,
+      title: "big_elephant",
+      logo: big_elephant,
     },
     {
       id: 3,
-      title: "Wooden Sofa",
-      logo: woodenSofa,
+      title: "cylinder_engine",
+      logo: cylinder_engine,
     },
     {
       id: 4,
-      title: "Wooden Chair",
-      logo: woodenChair,
+      title: "earphones",
+      logo: earphones,
+    },
+    {
+      id: 5,
+      title: "fan",
+      logo: fan,
+    },
+    {
+      id: 6,
+      title: "Infusor_Pump",
+      logo: Infusor_Pump,
+    },
+    {
+      id: 7,
+      title: "mobile",
+      logo: mobile,
     },
   ];
-
-  const capabiltiesArr = [
+  const marquee2 = [
     {
       id: 1,
-      number: "01",
-      title: "Omni-Channel Adoption",
-      descprition:
-        "Embed product configurators on your website to allow potential buyers to interact with and customize products, boosting engagement and conversion rates. Embed interactive configurators on social media platforms, Partnerships and Third-Party Websites and share links via Email Campaigns to reach potential buyers and leverage high engagement rates Integrate product configurators into mobile apps to provide a seamless and personalized user experience, enhancing customer satisfaction and loyalty.",
-      image: hourGlass,
+      title: "mri",
+      logo: mri,
     },
     {
       id: 2,
-      number: "02",
-      title: "Easy Integration",
-      descprition:
-        "Easily integrate the ZD viewer by copying the embed code, pasting it into your website's HTML, and publishing Easily integrate the ZD viewer by copying the iframe link, pasting it into your website's HTML, adjusting attributes, and publishing your page.",
-      image: rockingChair,
-    },
-
-    {
-      id: 3,
-      number: "03",
-      title: "Personalisation",
-      descprition:
-        "Tailoring your product, content, or services based on your and your customer's preference",
-      image: potIcon,
-    },
-  ];
-
-  const journeyArr = [
-    {
-      id: 1,
-      title: "Visualize The 3D Model",
-      descprition:
-        "Bring your 3D models to life with our dynamic visualization feature, complete with stunning animations and the ability to swap colors in real-time.",
-      image: visualize,
-    },
-    {
-      id: 2,
-      title: "Upload 3D Model",
-      descprition:
-        "Seamlessly upload your 3D models into our system with our platform’s easy upload, preview, and editing capabilities for hassle-free management and deployment.",
-      image: upload,
+      title: "new_dress",
+      logo: new_dress,
     },
     {
       id: 3,
-      title: "Generate 3D Model",
-      descprition:
-        "If you do not have 3D models, let our skilled ZE team create your 3D model in .GLB format, based on your CAD file or high-resolution images with a tech pack. If you already have 3D models, you can skip this step entirely.",
-      image: generate,
+      title: "omron",
+      logo: omron,
+    },
+    {
+      id: 4,
+      title: "sofa",
+      logo: sofa,
+    },
+    {
+      id: 5,
+      title: "pram",
+      logo: pram,
+    },
+    {
+      id: 6,
+      title: "silver_jewelery",
+      logo: silver_jewelery,
+    },
+    {
+      id: 7,
+      title: "table",
+      logo: table,
     },
   ];
 
@@ -191,6 +196,33 @@ export default function Home() {
     },
   ];
 
+  const journeyArr = [
+    {
+      id: 1,
+      title: "Generate 3D Model",
+      step: "STEP-1",
+      logo: laptopSettings,
+      description:
+        "Bring your 3D models to life with our dynamic visualization feature, complete with stunning animations and the ability to swap colors in real-time.",
+    },
+    {
+      id: 2,
+      title: "Upload 3D Model",
+      step: "STEP-2",
+      logo: upArrow,
+      description:
+        "Seamlessly upload your 3D models into our system with our platform’s easy upload, preview, and editing capabilities for hassle-free management and deployment.",
+    },
+    {
+      id: 3,
+      title: "Share 3D Model",
+      step: "STEP-3",
+      logo: thrredDBox,
+      description:
+        "If you do not have 3D models, let our skilled ZE team create your 3D model in .GLB format, based on your CAD file or high-resolution images with a tech pack. If you already have 3D models, you can skip this step entirely.",
+    },
+  ];
+
   return (
     <main>
       <section id="home">
@@ -248,7 +280,7 @@ export default function Home() {
           <Marquee
             autoFill
             pauseOnHover
-            speed={"20"}
+            speed={"30"}
             gradient
             gradientColor="rgba(0,0,0,0.7)"
           >
@@ -263,12 +295,12 @@ export default function Home() {
             autoFill
             pauseOnHover
             direction="right"
-            speed={"20"}
+            speed={"30"}
             gradient
             gradientColor="rgba(0,0,0,0.7)"
           >
             {/*  TODO: the next step i..e it has to open marquee model in a  new page */}
-            {marquee1.map((item) => (
+            {marquee2.map((item) => (
               <div className="marquee_item" key={item.id}>
                 <Image src={item.logo} alt={item.title} title={item.title} />
               </div>
@@ -289,14 +321,6 @@ export default function Home() {
           <span id="heading_span">Immersive Experience</span> Leads To <br />
           Tangible Outcomes
         </h2>
-
-        {/* <RadialBackground
-          style={{
-            width: "55rem",
-            height: "20rem",
-            top: "-3rem",
-          }}
-        /> */}
         <div className="immersive_image_container">
           <div className="immersive_card">
             <div className="immersive_img">
@@ -410,8 +434,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section id="journey_container">
+      <section id="journey">
         <h3>
           We&apos;ve Got You Covered Throughout
           <span
@@ -423,48 +446,36 @@ export default function Home() {
             &nbsp;Your Journey
           </span>
         </h3>
-        {/* <RadialBackground
-          style={{
-            width: "45rem",
-            height: "20rem",
-            top: "-4rem",
-          }}
-        /> */}
-
-        <div className="journey_card_container">
-          <div className="eclipse1"></div>
-          <div className="eclipse1"></div>
-          <div className="eclipse1"></div>
-          <div className="journey_card">
-            <Image src={laptopSettings} alt="laptop" title="laptop" />
-            <h3>Visualize The 3D model</h3>
-            <p>
-              Bring your 3D models to life with our dynamic visualization
-              feature, complete with stunning animations and the ability to swap
-              colors in real-time.
-            </p>
-          </div>
-          <div className="journey_card">
-            <Image src={upArrow} alt="upArrow" title="upArrow" />
-            <h3>Upload 3D Model</h3>
-            <p>
-              Seamlessly upload your 3D models into our system with our
-              platform&apos;s easy upload, preview, and editing capabilities for
-              hassle-free management and deployment.
-            </p>
-          </div>
-          <div className="journey_card">
-            <Image src={thrredDBox} alt="thrredDBox" title="thrredDBox" />
-            <h3>Generate 3D model</h3>
-            <p>
-              If you do not have 3D models, let our skilled ZE team create your
-              3D model in .GLB format, based on your CAD file or high-resolution
-              images with a tech pack. If you already have 3D models, you can
-              skip this step entirely.
-            </p>
-          </div>
+        <div className="journey_container">
+          {journeyArr.map((card) => (
+            <div className="journey_card">
+              <div className="journey_image_container">
+                <Image src={card.logo} alt="tv" title="tv" />
+                <p>{card.step}</p>
+              </div>
+              <div className="text_container">
+                <h4>{card.title}</h4>
+                <p>{card.description}</p>
+              </div>
+            </div>
+          ))}
+          {/* <div className="journey_card">
+            <div className="journey_image_container">
+              <Image src={laptopSettings} alt="tv" title="laptopSettings" />
+              <p>STEP-1</p>
+            </div>
+            <div className="text_container">
+              <h4>Generate 3D Model</h4>
+              <p>
+                Bring your 3D models to life with our dynamic visualization
+                feature, complete with stunning animations and the ability to
+                swap colors in real-time.
+              </p>
+            </div>
+          </div> */}
         </div>
       </section>
+
       <section id="transform">
         <video
           // TODO: Change the video

@@ -128,7 +128,7 @@ const Lms = () => {
               <span id="heading_span">Power Of Learning</span>
             </h2>
             <p>
-              with our LMS,you get more than just 3d learning. Benefit from a
+              with our LMS, you get more than just 3d learning. Benefit from a
               full suite of learning and assessment and management tools
               designed to support and streamline your entire learning process.
               Our platform is Crafted for ease of use ensuring that you spend

@@ -6,34 +6,13 @@ import Footer from "@/components/Footer/Footer";
 import mail from "@/public/mail.webp";
 import phone from "@/public/phone.webp";
 import Image from "next/image";
-
-import { ToastContainer, toast } from "react-toastify";
 import { mappls, mappls_plugin } from "mappls-web-maps";
 import { useEffect, useRef } from "react";
 
-const mapplsClassObject = new mappls();
-const mapplsPluginObject = new mappls_plugin();
-
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    message: "",
-    companyName: "",
-    mobileNumber: "",
-  });
-
-  const [errors, setErrors] = useState({
-    fullName: "",
-    email: "",
-    message: "",
-    companyName: "",
-    mobileNumber: "",
-  });
-
+  const mapplsClassObject = new mappls();
   const mapRef = useRef(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-
   const loadObject = {
     map: true,
     layer: "raster", // Optional Default Vector
@@ -79,88 +58,72 @@ const Contact = () => {
     };
   }, []);
 
-  const validate = () => {
-    let valid = true;
-    let errors = {};
+  const [formData, setFormData] = useState({
+    Fname: "",
+    Lname: "",
+    Phone: "",
+    Cname: "",
+    Cemail: "",
+    Cmessage: "",
+  });
 
-    // Full name validation
-    if (!formData.fullName.trim()) {
-      errors.fullName = "Full name is required";
-      valid = false;
-    } else if (/\d/.test(formData.fullName)) {
-      errors.fullName = "Full name cannot contain numbers";
-      valid = false;
-    }
-
-    // Email validation
-    if (!formData.email.trim()) {
-      errors.email = "Email is required";
-      valid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Email address is invalid";
-      valid = false;
-    }
-
-    // Message validation
-    if (!formData.message.trim()) {
-      errors.message = "Message is required";
-      valid = false;
-    }
-
-    // Company Name validation
-    if (!formData.companyName.trim()) {
-      errors.companyName = "Company name is required";
-      valid = false;
-    }
-
-    // Mobile Number validation
-    if (!formData.mobileNumber.trim()) {
-      errors.mobileNumber = "Mobile number is required";
-      valid = false;
-    } else if (!/^\d{10}$/.test(formData.mobileNumber)) {
-      errors.mobileNumber = "Mobile number must be 10 digits";
-      valid = false;
-    }
-
-    setErrors(errors);
-    return valid;
-  };
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Clear the error for the specific field when typing
+    setFormData({ ...formData, [name]: value });
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: "",
     }));
+  };
 
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const validateForm = () => {
+    let validationErrors = {};
+
+    if (!formData.Fname.trim()) {
+      validationErrors.Fname = "First Name is required";
+    }
+    if (!formData.Lname.trim()) {
+      validationErrors.Lname = "Last Name is required";
+    }
+    if (!formData.Phone.trim()) {
+      validationErrors.Phone = "Phone Number is required";
+    } else if (!/^[0-9]{10}$/.test(formData.Phone)) {
+      validationErrors.Phone = "Phone Number must be 10 digits";
+    }
+    if (!formData.Cname.trim()) {
+      validationErrors.Cname = "Company Name is required";
+    }
+    if (!formData.Cemail.trim()) {
+      validationErrors.Cemail = "Company Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Cemail)) {
+      validationErrors.Cemail = "Invalid email format";
+    }
+    if (!formData.Cmessage.trim()) {
+      validationErrors.Cmessage = "Message is required";
+    }
+
+    setErrors(validationErrors);
+    return Object.keys(validationErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      // Submit the form data
-      console.log("Form data:", formData);
+    if (validateForm()) {
+      console.log("Form Data:", formData);
       const bodyData = {
-        name: formData.fullName,
-        company: formData.companyName,
-        mobile: formData.mobileNumber,
-        email: formData.email,
-        requirements: formData.message,
+        name: formData.Fname + " " + formData.Lname,
+        company: formData.Cname,
+        mobile: formData.Phone,
+        email: formData.Cemail,
+        requirements: formData.Cmessage,
       };
       const recipient = "info@zdviewer.com";
-      // const recipient = "amboji.a@ziniosedge.com";
       const subject = "ZDViewer - Request for Demo";
       const url = "https://zdvservice.azurewebsites.net/api/landing/email";
-
       let body = JSON.stringify(bodyData);
       try {
-        toast.success("Your request has been submitted successfully");
         const response = await fetch(url, {
           method: "POST",
           headers: {
@@ -171,137 +134,170 @@ const Contact = () => {
         const data = await response.json();
         console.log("RESPONSE>>>>>>", data.message);
         setFormData({
-          fullName: "",
-          email: "",
-          message: "",
-          companyName: "",
-          mobileNumber: "",
+          Fname: "",
+          Lname: "",
+          Phone: "",
+          Cname: "",
+          Cemail: "",
+          Cmessage: "",
         });
         setErrors({});
       } catch (error) {
-        toast.error("Failed to send email");
         console.log("RESPONSE>>>>>>", "Failed to send email");
       }
     }
   };
 
+  const contactarr = [
+    {
+      id: 1,
+      title: "Send Enquiry",
+      logo: mail,
+      description: "Info@Zdviewer.com",
+    },
+    {
+      id: 2,
+      title: "Give Us A Call",
+      logo: phone,
+      description: "+91 9591810823",
+    },
+  ];
+
   return (
     <>
       <section id="contact">
-        <h2>Contact Us</h2>
+        <h2>
+          Contact <span id="heading_span">Us</span>
+        </h2>
         <div className="contact_container">
-          <div className="form_section">
-            <h4>
-              How can we <span id="heading_span">help</span> you?
-            </h4>
-            <form onSubmit={handleSubmit}>
-              <div className="form_element">
-                <label htmlFor="fullName">Full Name</label>
-                <input
-                  type="text"
-                  name="fullName"
-                  id="fullName"
-                  placeholder="John Doe"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                />
-                {errors.fullName && (
-                  <div className="error_line">{errors.fullName}</div>
-                )}
+          <div className="text_container">
+            {contactarr.map((contact) => (
+              <div className="message_box" key={contact.id}>
+                <Image src={contact.logo} alt="mail" />
+                <div className="messge_container">
+                  <h3>{contact.title}</h3>
+                  <p>{contact.description}</p>
+                </div>
               </div>
-              <div className="form_element">
-                <label htmlFor="mobileNumber">Mobile Number</label>
-                <input
-                  type="text"
-                  name="mobileNumber"
-                  id="mobileNumber"
-                  placeholder="1234567890"
-                  value={formData.mobileNumber}
-                  onChange={handleChange}
-                  onKeyDown={(e) => {
-                    if (
-                      !/^[0-9]$/.test(e.key) &&
-                      e.key !== "Backspace" &&
-                      e.key !== "Tab"
-                    ) {
-                      e.preventDefault();
-                    }
-                  }}
-                />
-                {errors.mobileNumber && (
-                  <div className="error_line">{errors.mobileNumber}</div>
-                )}
-              </div>
-
-              <div className="form_element">
-                <label htmlFor="companyName">Company Name</label>
-                <input
-                  type="text"
-                  name="companyName"
-                  id="companyName"
-                  placeholder="Your Company"
-                  value={formData.companyName}
-                  onChange={handleChange}
-                />
-                {errors.companyName && (
-                  <div className="error_line">{errors.companyName}</div>
-                )}
-              </div>
-              <div className="form_element">
-                <label htmlFor="email">Company Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="someone@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-                {errors.email && (
-                  <div className="error_line">{errors.email}</div>
-                )}
-              </div>
-
-              <div className="form_element">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="I want a Demo..."
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                />
-                {errors.message && (
-                  <div className="error_line">{errors.message}</div>
-                )}
-              </div>
-
-              <input type="submit" value="Send message" />
-            </form>
-          </div>
-          <div className="map_section">
-            <div className="message_section">
-              <Image src={mail} alt="mail" />
-              <div className="mesage_container">
-                <p>Send Us An Email</p>
-                <p>info@Zdviewer.com</p>
-              </div>
-            </div>
-            <div className="message_section">
-              <Image src={phone} alt="phone" />
-              <div className="mesage_container">
-                <p>Give Us A Call</p>
-                <p>+91 9591810823</p>
-              </div>
-            </div>
-            <div
-              className="phone_section"
-              id="map"
-              style={{ display: "inline-block" }}
-            >
+            ))}
+            <div className="map_container" id="map">
               {isMapLoaded}
             </div>
+          </div>
+          <div className="contactform_container">
+            <h3>
+              How Can We <span id="heading_span">Help</span> You?
+            </h3>
+            <form className="form_container" onSubmit={handleSubmit}>
+              <div className="input_container">
+                <div className="input_field_container">
+                  <label htmlFor="Fname">First Name</label>
+                  <input
+                    type="text"
+                    name="Fname"
+                    id="Fname"
+                    placeholder="Enter your name"
+                    value={formData.Fname}
+                    onChange={handleChange}
+                  />
+                  {errors.Fname && (
+                    <div className="error_message">{errors.Fname}</div>
+                  )}
+                </div>
+                <div className="input_field_container">
+                  <label htmlFor="Lname">Last Name</label>
+                  <input
+                    type="text"
+                    name="Lname"
+                    id="Lname"
+                    placeholder="Enter your name"
+                    value={formData.Lname}
+                    onChange={handleChange}
+                  />
+                  {errors.Lname && (
+                    <div className="error_message">{errors.Lname}</div>
+                  )}
+                </div>
+              </div>
+              <div className="input_container">
+                <div className="input_field_container">
+                  <label htmlFor="Phone">Phone Number</label>
+                  <input
+                    type="text"
+                    name="Phone"
+                    id="Phone"
+                    placeholder="Enter your phone number"
+                    value={formData.Phone}
+                    onChange={handleChange}
+                    onKeyDown={(e) => {
+                      if (
+                        !/^[0-9]$/.test(e.key) &&
+                        e.key !== "Backspace" &&
+                        e.key !== "Tab"
+                      ) {
+                        e.preventDefault();
+                      }
+                    }}
+                  />
+                  {errors.Phone && (
+                    <div className="error_message">{errors.Phone}</div>
+                  )}
+                </div>
+                <div className="input_field_container">
+                  <label htmlFor="Cname">Company Name</label>
+                  <input
+                    type="text"
+                    name="Cname"
+                    id="Cname"
+                    placeholder="Enter company name"
+                    value={formData.Cname}
+                    onChange={handleChange}
+                  />
+                  {errors.Cname && (
+                    <div className="error_message">{errors.Cname}</div>
+                  )}
+                </div>
+              </div>
+              <div className="input_container">
+                <div
+                  className="input_field_container"
+                  style={{ width: "100%" }}
+                >
+                  <label htmlFor="Cemail">Company Email</label>
+                  <input
+                    type="email"
+                    name="Cemail"
+                    id="Cemail"
+                    placeholder="Enter your company email"
+                    value={formData.Cemail}
+                    onChange={handleChange}
+                  />
+                  {errors.Cemail && (
+                    <div className="error_message">{errors.Cemail}</div>
+                  )}
+                </div>
+              </div>
+              <div className="input_container">
+                <div
+                  className="input_field_container"
+                  style={{ width: "100%" }}
+                >
+                  <label htmlFor="Cmessage">Message</label>
+                  <textarea
+                    name="Cmessage"
+                    id="Cmessage"
+                    placeholder="Enter your message"
+                    rows={3}
+                    value={formData.Cmessage}
+                    onChange={handleChange}
+                  />
+                  {errors.Cmessage && (
+                    <div className="error_message">{errors.Cmessage}</div>
+                  )}
+                </div>
+              </div>
+              <input type="submit" value="Send Message" />
+            </form>
           </div>
         </div>
       </section>

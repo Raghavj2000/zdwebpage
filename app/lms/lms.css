@@ -669,7 +669,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    gap: 10rem;
+    gap: 1rem;
   }
   .training_benefits_text_container {
     width: 100%;
@@ -735,7 +735,7 @@
     width: 100%;
     scale: 1;
     height: 100%;
-    margin: 0 0 6rem 6rem;
+    margin: 0 0 -10rem 6rem;
   }
   /* end of training_benefits */
   /* beginning of already */

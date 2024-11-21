@@ -7,7 +7,7 @@ import Link from "next/link";
 import upArrow from "../../public/uparrow.webp";
 import visualization from "@/public/visualization.webp";
 import configurator from "@/public/configurator.webp";
-import walkthrough from "@/public/walkthrough.webp";
+import walkthrough from "@/public/walkthrough_logo.webp";
 import { usePathname } from "next/navigation";
 import { toast } from "react-toastify";
 import hamburger from "../../public/hamburger.webp";
@@ -184,7 +184,7 @@ const NewNavbar = () => {
                   >
                     <Image src={subLink.logo} />
                     <div className="subnav_text_container">
-                      <p>{subLink.title}</p>
+                      <h3>{subLink.title}</h3>
                       <p>{subLink.desc}</p>
                     </div>
                   </div>
@@ -195,7 +195,12 @@ const NewNavbar = () => {
         )}
       </nav>
       <Link href="/contactus">
-        <div className="contact_us">Contact Us</div>
+        <div
+          className="contact_us"
+          style={{ display: pathname === "/contactus" ? "none" : "" }}
+        >
+          Contact Us
+        </div>
       </Link>
       <div className="mobile_nav_container">
         <div

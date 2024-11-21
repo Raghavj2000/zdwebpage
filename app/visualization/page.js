@@ -87,7 +87,13 @@ const Visualization = () => {
           </h2>
         </div>
         <div className="threed_visualization_image_container">
-          <Image src={bike} alt="bike" />
+          <iframe
+            src="https://zeblobstorage.blob.core.windows.net/zeblob/WebAR_3js/ZD_Landing/ModelViewer_ZdvLanding_RR/ar.html"
+            frameBorder="0"
+            scrolling="no"
+            width={"100%"}
+            height={"100%"}
+          />
         </div>
       </section>
       <section id="connect_with_everything">
