@@ -1,5 +1,5 @@
 import React from "react";
-import "./PrimaryButton.css";
+import "./primaryButton.css";
 
 const PrimaryButton = ({
   label,
