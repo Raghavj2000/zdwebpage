@@ -7,6 +7,23 @@
 #heading_span {
   color: #8676e9;
 }
+
+.Toastify__toast {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .Toastify__toast {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .Toastify__toast {
+    font-size: 2rem;
+  }
+}
+
 @media (min-width: 320px) {
   html,
   body {
