@@ -61,7 +61,7 @@ const Walkthrough = () => {
             <div className="inner_bottom_box"></div>
           </div>
           <h3>
-            Common Challeneges in <span id="heading_span">Real-Time</span>
+            Common Challenges in <span id="heading_span">Real-Time</span>
             <br /> Production Moniroting
           </h3>
           <div className="common_challenge_block">
