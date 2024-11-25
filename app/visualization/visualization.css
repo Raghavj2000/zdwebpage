@@ -192,11 +192,13 @@
 .boost_right_box::after {
   content: "";
   position: absolute;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.75rem;
+  height: 0.75rem;
   background-color: #8676e9;
+  /* background-color: red; */
   border-radius: 100%;
-  right: -8%;
+  right: -0%;
+  transform: translateX(50%);
   top: 50%;
 }
 
@@ -328,7 +330,7 @@
   left: 0;
 
   bottom: 97%;
-  transform: translateX(-100%);
+  transform: translateX(-94%);
 }
 .boost_two_top_box {
   position: absolute;
@@ -351,7 +353,7 @@
   border-radius: 100%;
   left: 0;
   top: 97%;
-  transform: translateX(-100%);
+  transform: translateX(-94%);
 }
 .boost_two_right_box {
   position: absolute;
